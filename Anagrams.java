@@ -23,7 +23,7 @@ public class Anagrams {
         try {
             inputString = reader.readLine();
         } catch (IOException ex) {
-            Logger.getLogger(JavaApplication1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Anagrams.class.getName()).log(Level.SEVERE, null, ex);
         }
         for (int i = 0; i < inputString.length(); i++) {
             if (inputString.charAt(i) == ' ') {
