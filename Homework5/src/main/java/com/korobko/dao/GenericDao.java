@@ -4,7 +4,7 @@ public interface GenericDao<T> {
 
     T create(T t);
 
-    T findById(Long id);
+    T findById(Long id) throws Exception;
 
     T update(T t);
 
