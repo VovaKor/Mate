@@ -52,9 +52,9 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
                 if (sqlLong.constraints().primaryKey()) {
                     columnId = sqlLong.column();
                     idColumns.add(columnId);
-                } else {
-                    annotationTypes.put(field, "SQLLong");
                 }
+                annotationTypes.put(field, "SQLLong");
+
             } else if (annotations[0] instanceof SQLInteger) {
                 annotationTypes.put(field, "SQLInteger");
             } else if (annotations[0] instanceof SQLString) {
