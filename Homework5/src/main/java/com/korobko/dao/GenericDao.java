@@ -10,4 +10,6 @@ public interface GenericDao<T> {
 
     T delete(T t);
 
+    T findByEmail(String email);
+
 }

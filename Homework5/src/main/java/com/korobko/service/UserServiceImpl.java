@@ -2,6 +2,10 @@ package com.korobko.service;
 
 import com.korobko.dao.UserDao;
 import com.korobko.model.User;
+import com.korobko.util.BaseUtil;
+
+import java.time.LocalTime;
+import java.util.Optional;
 
 
 public class UserServiceImpl implements UserService {
@@ -15,5 +19,17 @@ public class UserServiceImpl implements UserService {
 
     public User create(User user) {
         return userDao.create(user);
+    }
+
+    @Override
+    public Optional<String> checkUser(String email, String password) {
+        User user = userDao.findByEmail(email);
+        if (user != null && user.getPassword().equals(password)) {
+            String token = BaseUtil.getUserToken();
+            user.setToken(token);
+            userDao.update(user);
+            return Optional.of(token);
+        }
+        return Optional.empty();
     }
 }

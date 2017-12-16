@@ -21,6 +21,8 @@ public class User {
     @SQLString(value = 50, column = "password")
     private String password;
 
+    private String token;
+
     public User() {}
 
     public User(String name, String email, String password) {
@@ -59,5 +61,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

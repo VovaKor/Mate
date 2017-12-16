@@ -1,6 +1,6 @@
 package com.korobko;
 
-import com.korobko.controller.UserController;
+import com.korobko.controller.CreateUserController;
 import com.korobko.dao.UserDaoImpl;
 import com.korobko.service.UserServiceImpl;
 
@@ -22,8 +22,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        UserController controller2 = (UserController) Function.identity()
-                .compose(UserController::new)
+        CreateUserController controller2 = (CreateUserController) Function.identity()
+                .compose(CreateUserController::new)
                 .compose(UserServiceImpl::new)
                 .compose(UserDaoImpl::new)
                 .apply(Factory.getConnection());
