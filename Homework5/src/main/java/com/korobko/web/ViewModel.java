@@ -7,7 +7,7 @@ import java.util.Map;
  * @author Vova Korobko
  */
 public class ViewModel {
-    private final String PREFIX = "/WEB-INF/servlet/";
+    private final String PREFIX = "/WEB-INF/";
     private final String SUFFIX = ".jsp";
     private String view;
     private Map<String, Object> argumentsMap = new HashMap<>();

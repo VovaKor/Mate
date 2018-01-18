@@ -4,7 +4,6 @@ import com.korobko.dao.UserDao;
 import com.korobko.model.User;
 import com.korobko.util.BaseUtil;
 
-import java.time.LocalTime;
 import java.util.Optional;
 
 
@@ -31,5 +30,10 @@ public class UserServiceImpl implements UserService {
             return Optional.of(token);
         }
         return Optional.empty();
+    }
+
+    @Override
+    public User findById(long id) {
+        return userDao.getUserByToken(id);
     }
 }

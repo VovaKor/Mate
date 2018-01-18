@@ -4,6 +4,7 @@ import com.korobko.Factory;
 import com.korobko.controller.Controller;
 import com.korobko.controller.CreateUserController;
 import com.korobko.controller.LoginUserController;
+import com.korobko.controller.ProfileController;
 import com.korobko.dao.UserDaoImpl;
 import com.korobko.service.UserServiceImpl;
 
@@ -43,6 +44,8 @@ public class MainServlet extends HttpServlet {
                         .compose(UserServiceImpl::new)
                         .compose(UserDaoImpl::new)
                         .apply(Factory.getConnection()));
+        controllerMap.put(new Request("/servlet/profile", "GET"),
+                new ProfileController());
     }
 
     @Override
@@ -80,6 +83,6 @@ public class MainServlet extends HttpServlet {
         if (vm.getArgumentsMap().isEmpty()) {
             return;
         }
-        /*vm.getArgumentsMap().entrySet().stream()*/
+        vm.getArgumentsMap().forEach(req::setAttribute);
     }
 }

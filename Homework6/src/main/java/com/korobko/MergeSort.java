@@ -32,7 +32,6 @@ public class MergeSort {
         xs[i] = xs[j];
         xs[j] = tmp;
     }
-
     /*
      * sort xs[l, u), and put result to working area w.
      * constraint, len(w) == u - l
@@ -72,8 +71,7 @@ public class MergeSort {
         }
     }
 
-    public static void sort(int array[], int firstIndex, int lastIndex) {
-        // int firstIndex = firstIndex;
+    private static void sort(int array[], int firstIndex, int lastIndex) {
 
         if (firstIndex >= lastIndex) {
             return;
@@ -128,22 +126,22 @@ public class MergeSort {
     }
 
     // textbook merge
-    public static void merge(int[] left, int[] right, int[] arr) {
+    private static void merge(int[] left, int[] right, int[] array) {
         int leftSize = left.length;
         int rightSize = right.length;
-        int i = 0, j = 0, k = 0;
-        while (i < leftSize && j < rightSize) {
-            if (left[i] <= right[j]) {
-                arr[k++] = left[i++];
+        int leftStart = 0, rightStart = 0, arrayIndex = 0;
+        while (leftStart < leftSize && rightStart < rightSize) {
+            if (left[leftStart] <= right[rightStart]) {
+                array[arrayIndex++] = left[leftStart++];
             } else {
-                arr[k++] = right[j++];
+                array[arrayIndex++] = right[rightStart++];
             }
         }
-        while (i < leftSize) {
-            arr[k++] = left[i++];
+        while (leftStart < leftSize) {
+            array[arrayIndex++] = left[leftStart++];
         }
-        while (j < rightSize) {
-            arr[k++] = right[j++];
+        while (rightStart < rightSize) {
+            array[arrayIndex++] = right[rightStart++];
         }
     }
 }

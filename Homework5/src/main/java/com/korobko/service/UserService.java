@@ -9,4 +9,6 @@ public interface UserService {
     User create(User user);
 
     Optional<String> checkUser(String email, String password);
+
+    User findById(long id);
 }

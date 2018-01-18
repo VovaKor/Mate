@@ -43,7 +43,7 @@ public class LoginFilter implements Filter {
                 httpServletRequest.getRequestDispatcher("/servlet/login").forward(httpServletRequest, servletResponse);
             }
         }
-
+        filterChain.doFilter(httpServletRequest,servletResponse);
     }
 
     @Override
